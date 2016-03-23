@@ -1,0 +1,3 @@
+source 'https://github.com/CocoaPods/Specs.git'
+pod 'FXReachability',  :inhibit_warnings => true
+pod 'AFNetworking', '~> 2.4'

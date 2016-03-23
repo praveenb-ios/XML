@@ -14,9 +14,22 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    [SFLogger setLogLevel:SFLogLevelDebug];
+    
+    [SalesforceSDKManager sharedManager].connectedAppId = @"3MVG9Iu66FKeHhINkB1l7xt7kR8czFcCTUhgoA8Ol2Ltf1eYHOU4SqQRSEitYFDUpqRWcoQ2.dBv_a1Dyu5xa";
+    [SalesforceSDKManager sharedManager].connectedAppCallbackUri = @"testsfdc:///mobilesdk/detect/oauth/done";
+    NSArray *array = [NSArray arrayWithObjects:@"web",@"api", nil];
+    [SalesforceSDKManager sharedManager].authScopes = array;
+    
+     __weak AppDelegate *weakSelf = self;
+     [SalesforceSDKManager sharedManager].postLaunchAction = ^(SFSDKLaunchAction launchActionList) {
+//         [weakSelf setupRootViewController];
+
+     };
+
+    
     return YES;
 }
 
